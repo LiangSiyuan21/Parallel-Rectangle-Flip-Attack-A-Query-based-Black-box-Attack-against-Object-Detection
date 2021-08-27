@@ -1,0 +1,67 @@
+// attack setting
+// iou_ss_attack
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [   
+        {
+        "name": "Python: Current File",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal",
+        "cwd": "${workspaceFolder}",
+        "args": ["configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py",
+        "/srv/hdd/weight/od-black/checkpoints/faster_rcnn_r50_fpn_2x_coco_bbox_mAP-0.384_20200504_210434-a5d8aa15.pth",
+        "--attack", "IoUss_linf",
+        "--eval", "bbox",
+        "--n_iter", "12",
+        "--model", "FR",
+        "--loss", "cw_loss,iou_loss",
+        "--p", "inf",
+        "--out_dir", "/srv/hdd/results/od-black/mmdetection/iou_ss_attack/FR/det_12_z_09",
+        "--exp_folder", "/srv/hdd/results/od-black/mmdetection/iou_ss_attack/FR/adv_12_z_09",
+        "--vis_step_out_dir", "/srv/hdd/results/od-black/mmdetection/iou_ss_attack/FR/vis_step_12_z_09",
+        "--vis_attack_step", "True",
+        "--zeta", "0.9",
+        "--lambda1", "1.0",
+        "--out_log", "/srv/hdd/logs/od-black/mmdetection/iou_ss_attack/FR_12_z_09.out"
+        , "--patch_attack", "bbox"
+        , "--attack_parallel", "4"
+        , "--square_expansion", "False"
+        , "--square_init", "False"
+        // ,"--attack_logistics", "True"
+    ],
+        "python": "${command:python.interpreterPath}"
+        }
+    ]
+}
+
+
+// detector setting_FR
+// {
+//     // Use IntelliSense to learn about possible attributes.
+//     // Hover to view descriptions of existing attributes.
+//     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//         "name": "Python: Current File",
+//         "type": "python",
+//         "request": "launch",
+//         "program": "${file}",
+//         "console": "integratedTerminal",
+//         "cwd": "${workspaceFolder}",
+//         "args": ["configs/faster_rcnn/faster_rcnn_r50_fpn_1x_coco.py",
+//                 "/srv/hdd/weight/od-black/checkpoints/faster_rcnn_r50_fpn_2x_coco_bbox_mAP-0.384_20200504_210434-a5d8aa15.pth",
+//                 "--out_log", "/srv/hdd/logs/od-black/mmedetection/clean_demo/faster_rcnn.out",
+//                 "--eval", "bbox"
+//                 // , "--show"
+//             ],
+//         "python": "${command:python.interpreterPath}"
+//         }
+//     ]
+// }
+
